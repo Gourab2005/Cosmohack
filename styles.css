@@ -306,10 +306,10 @@ html {
 /* Glow Animation */
 @keyframes glow {
   0% {
-    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+    text-shadow: 0 0 10px #00e0ff, 0 0 20px #00e0ff, 0 0 30px #00e0ff;
   }
   100% {
-    text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+    text-shadow: 0 0 20px #00e0ff, 0 0 30px #00e0ff, 0 0 40px #00e0ff;
   }
 }
 
