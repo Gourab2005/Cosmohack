@@ -12,12 +12,11 @@ body, html {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background-color: #000;
-  overflow: hidden;
 }
 
 /* Stars background */
 .stars {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -332,5 +331,139 @@ html {
   }
   50% {
     opacity: 1;
+  }
+}
+
+
+/* Tubelight section styling */
+/* Tubelight section styling */
+.hackathon-section {
+  text-align: center;
+  margin: 50px 0;
+  padding: 20px;
+}
+
+.tubelight {
+  width: 500px; /* Increase the width for a larger tubelight */
+  height: 20px; /* Increase height for a more realistic feel */
+  background-color: #fff;
+  opacity: 0.8;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 60px rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  animation: flicker 2s infinite;
+}
+
+.tubelight-text {
+  font-size: 3rem; /* Increased text size */
+  margin-top: 20px;
+  color: white;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.5);
+  letter-spacing: 5px;
+}
+
+/* Keyframes for the flickering effect */
+@keyframes flicker {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  10%, 30% {
+    opacity: 1;
+  }
+  20%, 40% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  60%, 80% {
+    opacity: 0.6;
+  }
+  70%, 90% {
+    opacity: 1;
+  }
+}
+
+/* Styling for Hackathon details */
+.hackathon-details {
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 8px;
+  border: 3px solid; /* Add border */
+  animation: glow1 3s infinite; /* Apply the color-changing glow animation */
+  box-shadow: 0 0 15px rgba(0, 255, 234, 0.8), 0 0 25px rgba(0, 255, 234, 0.5); /* Glowing effect */
+}
+
+.hackathon-details h2 {
+  font-size: 2.2rem;
+  color: #fff; /* White text */
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.hackathon-details p {
+  font-size: 1.3rem;
+  color: #fff; /* White text */
+  line-height: 1.8;
+}
+
+.hackathon-details ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.hackathon-details ul li {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  padding-left: 20px;
+  text-align: left;
+  position: relative;
+  color: #fff; /* White text */
+}
+
+.hackathon-details ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #00ffea;
+  font-size: 1.5rem;
+}
+@keyframes glow1 {
+  0% {
+    border-color: #00ffea; /* Start with cyan */
+    box-shadow: 0 0 15px #00ffea, 0 0 25px #00ffea;
+  }
+  33% {
+    border-color: #ff00ff; /* Magenta */
+    box-shadow: 0 0 15px #ff00ff, 0 0 25px #ff00ff;
+  }
+  66% {
+    border-color: #ffea00; /* Yellow */
+    box-shadow: 0 0 15px #ffea00, 0 0 25px #ffea00;
+  }
+  100% {
+    border-color: #00ffea; /* Back to cyan */
+    box-shadow: 0 0 15px #00ffea, 0 0 25px #00ffea;
+  }
+}
+/* Responsive design */
+@media (max-width: 768px) {
+  .tubelight {
+    width: 300px;
+  }
+
+  .tubelight-text {
+    font-size: 2rem;
+  }
+
+  .hackathon-details h2 {
+    font-size: 1.7rem;
+  }
+
+  .hackathon-details p,
+  .hackathon-details ul li {
+    font-size: 1rem;
   }
 }
