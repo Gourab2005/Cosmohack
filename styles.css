@@ -1,0 +1,304 @@
+/* Reset and general styles */
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&family=Teko:wght@300..700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Teko", sans-serif;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #000;
+  overflow: hidden;
+}
+
+/* Stars background */
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.stars div {
+  position: absolute;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  animation: twinkling 5s infinite;
+  pointer-events: none;
+}
+
+@keyframes twinkling {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.stars1 {
+  z-index: 1;
+  animation: moveStars 100s linear infinite;
+}
+
+.stars2 {
+  z-index: 2;
+  animation: moveStars 150s linear infinite;
+}
+
+@keyframes moveStars {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100vh);
+  }
+}
+
+/* Shooting stars */
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow: 0 0 6px 2px white;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes shoot {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-300px, 300px) scale(0.5);
+  }
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 20px 40px;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+.navbar-logo {
+  font-size: 24px;
+  color: #00e0ff;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none; /* Hidden by default */
+  font-size: 24px;
+  color: #00e0ff;
+  cursor: pointer;
+}
+
+/* Navbar menu */
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar-menu li {
+  display: inline-block;
+  position: relative;
+}
+
+.navbar-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 20px;
+  transition: color 0.3s ease;
+}
+
+.navbar-menu li a:hover {
+  color: #00e0ff;
+}
+
+.navbar-menu li a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background: #00e0ff;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.navbar-menu li a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Adjust based on navbar height */
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    border-top: 1px solid #00e0ff;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  .navbar-menu li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger icon */
+  }
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+}
+
+.fade-in-text {
+  font-size: 8rem;
+  color: white;
+  margin: 0;
+  opacity: 0;
+  animation: fadeIn 5s forwards, glow 2s infinite alternate, float 3s infinite ease-in-out;
+  position: relative;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), 
+               2px 2px 4px rgba(0, 0, 0, 0.2), 
+               3px 3px 6px rgba(0, 0, 0, 0.3), 
+               4px 4px 8px rgba(0, 0, 0, 0.4), 
+               5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.punchline {
+  font-size: 1.5rem;
+  color: white;
+  margin-top: 20px;
+  z-index: 10;
+}
+
+/* Responsive text sizes */
+@media (max-width: 599px) {
+  .hero .fade-in-text {
+    font-size: 4rem; /* Adjusted size for the hero text */
+  }
+
+  .hero .punchline {
+    font-size: 1.2rem; /* Smaller punchline text */
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .hero .fade-in-text {
+    font-size: 6rem; /* Medium size for hero text */
+  }
+
+  .hero .punchline {
+    font-size: 1.4rem; /* Medium size for punchline text */
+  }
+}
+
+@media (min-width: 900px) {
+  .hero .fade-in-text {
+    font-size: 8rem; /* Larger size for hero text */
+  }
+
+  .hero .punchline {
+    font-size: 1.5rem; /* Larger size for punchline text */
+  }
+}
+/* Customize scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Background color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffcc00; /* Background color of the scrollbar thumb (the part that moves) */
+  border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff9900; /* Color of the scrollbar thumb when hovered */
+}
+
+
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin; /* Makes scrollbar thin in Firefox */
+  scrollbar-color: #ffcc00 #f0f0f0; /* Thumb color and track color */
+}
+
+/* Typing effect */
+.typing-effect {
+  font-size: 24px; /* Adjust size as needed */
+  color: #00e0ff; /* Match your theme */
+  font-weight: bold;
+  text-transform: uppercase;
+  overflow: hidden; /* Ensure text doesn’t overflow */
+  white-space: nowrap; /* Keep text in one line */
+  display: inline-block;
+}
+
+.typing-effect::after {
+  content: '|'; /* Cursor effect */
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
