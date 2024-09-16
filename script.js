@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Typing effect in navbar logo using GSAP
   const typingElement = document.querySelector('.typing-effect');
-  const texts = ["COSMOCODE", "Presented by", "Sourcify IN"]; // Texts to type
+  const texts = ["COSMOHACK", "Presented by", "Sourcify IN"]; // Texts to type
   let index = 0;
 
   function typeText() {
